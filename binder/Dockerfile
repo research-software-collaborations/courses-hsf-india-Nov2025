@@ -6,8 +6,8 @@ ARG NEW_MAMBA_USER_ID=1000
 ARG NEW_MAMBA_USER_GID=57440
 
 ARG GH_ORG="https://github.com/research-software-collaborations"
-ARG GH_REPO="hsf-india-IITG-Nov2025"
-ARG GH_BRANCH="python"
+ARG GH_REPO="courses-hsf-india-Nov2025"
+ARG GH_BRANCH="ml"
 ARG GH_ENV_DIR="${GH_REPO}/binder"
 
 USER root
