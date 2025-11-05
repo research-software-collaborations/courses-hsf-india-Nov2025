@@ -3,49 +3,24 @@ channels:
   - conda-forge
 dependencies:
   - python=3.12
-  - aiohttp
-  - astunparse
-  - awkward
   - bash_kernel
-  - clang-tools
-  - cxx-compiler
-  - pympler
   - jax
-  - optax
-  - equinox
-  - hepunits
-  - hist
-  - ipympl
-  - jupyterlab-deck
-  - jupyterlab-mathjax3
+  - tensorflow[and-cuda]
+  - nvidia-cudnn-cu12
+  - numpy<2
+  - pandas
+  - scipy
+  - hdf5
   - lz4
   - matplotlib
   - numba
   - openssh
   - pandas
-  - particle
-  - pint
   - pip
-  - polars
-  - pyarrow
-  - pybind11
-  - pyhf
-  - pyshp
-  - py-spy
-  - requests
   - scikit-learn
-  - servicex
-  - uproot
-  - vector
-  - vim
-  - dask
-  - distributed
-  - dask-awkward
-  - graphviz
-  - python-graphviz
   - pip:
       - h5py
-      - flax
+
 
 variables:
   LD_LIBRARY_PATH: "'$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/'"
