@@ -7,7 +7,7 @@ dependencies:
   - bash_kernel
   - jax
   - tensorflow[and-cuda]
-  - nvidia-cudnn-cu12
+  - cudnn
   - numpy<2
   - pandas
   - scipy
