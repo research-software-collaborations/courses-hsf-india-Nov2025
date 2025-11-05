@@ -38,9 +38,11 @@ USER $MAMBA_USER
 
 RUN git clone -b ${GH_BRANCH} ${GH_ORG}/${GH_REPO}
 
-RUN micromamba env update --name base -f ${GH_ENV_DIR}/environment.yml && \
+# docker may reuse an existing repo clone..
+RUN cd ${GH_REPO} && git pull && cd .. && \
+    micromamba env update --name base -f ${GH_ENV_DIR}/environment.yml && \
     micromamba install -y  -c conda-forge \       
-       jupyterlab openssh notebook vim nano emacs  && \      
+    jupyterlab openssh notebook vim nano emacs  && \      
     micromamba clean --all --yes
 
 WORKDIR /home/jovyan
