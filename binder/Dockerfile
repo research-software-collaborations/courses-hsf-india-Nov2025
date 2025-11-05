@@ -35,9 +35,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-COPY binder/overrides.json /tmp
-RUN mkdir -p /opt/conda/share/jupyter/lab/settings; \
-      cp /tmp/overrides.json /opt/conda/share/jupyter/lab/settings    
 USER $MAMBA_USER
 
 RUN git clone -b ${GH_BRANCH} ${GH_ORG}/${GH_REPO}
@@ -49,6 +46,12 @@ RUN cd ${GH_REPO} && git pull && cd .. && \
     jupyterlab openssh notebook vim nano emacs  && \      
     micromamba clean --all --yes
 
+USER root
+COPY binder/overrides.json /tmp
+RUN mkdir -p /opt/conda/share/jupyter/lab/settings; \
+      cp /tmp/overrides.json /opt/conda/share/jupyter/lab/settings    
+
+USER $MAMBA_USER
 WORKDIR /home/jovyan
 
 RUN echo 'export PS1="\e[0;32m\W$ \e[m"' >> .bashrc
