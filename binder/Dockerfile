@@ -34,13 +34,17 @@ USER root
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     && rm -rf /var/lib/apt/lists/*
+
+COPY binder/overrides.json /tmp
+RUN mkdir -p /opt/conda/share/jupyter/lab/settings; \
+      cp /tmp/overrides.json /opt/conda/share/jupyter/lab/settings    
 USER $MAMBA_USER
 
 RUN git clone -b ${GH_BRANCH} ${GH_ORG}/${GH_REPO}
 
 # docker may reuse an existing repo clone..
 RUN cd ${GH_REPO} && git pull && cd .. && \
-    micromamba env update --name base -f ${GH_ENV_DIR}/environment.yml && \
+    #micromamba env update --name base -f ${GH_ENV_DIR}/environment.yml && \
     micromamba install -y  -c conda-forge \       
     jupyterlab openssh notebook vim nano emacs  && \      
     micromamba clean --all --yes
