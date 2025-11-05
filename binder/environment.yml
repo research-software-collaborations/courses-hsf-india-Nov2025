@@ -1,12 +1,13 @@
 name: hsf-india-python
 channels:
+  - nvidia/label/cuda-12.9
   - conda-forge
 dependencies:
   - python=3.12
   - bash_kernel
   - jax
   - tensorflow[and-cuda]
-  - nvidia::cudnn cuda-version=12
+  - nvidia-cudnn-cu12
   - numpy<2
   - pandas
   - scipy
