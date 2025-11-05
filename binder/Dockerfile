@@ -56,6 +56,6 @@ WORKDIR /home/jovyan
 
 RUN micromamba run jupyter lab --generate-config ; \
     echo "c.ServerApp.shutdown_no_activity_timeout = 7200" >> /home/jovyan/.jupyter/jupyter_lab_config.py;
-    echo "" >> /home/jovyan/.jupyter/jupyter_lab_config.py
+    echo " " >> /home/jovyan/.jupyter/jupyter_lab_config.py
 
 #RUN echo 'export PS1="\e[0;32m\W$ \e[m"' >> .bashrc
