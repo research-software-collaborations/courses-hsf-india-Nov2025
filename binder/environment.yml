@@ -1,6 +1,7 @@
 name: hsf-india-python
 channels:
   - conda-forge
+  - nvidia
 dependencies:
   - python=3.12
   - bash_kernel
