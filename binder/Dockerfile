@@ -47,7 +47,12 @@ RUN \
     jupyterlab openssh notebook vim nano emacs  && \      
     micromamba clean --all --yes
 
+RUN micromamba list
+
 USER root
+RUN du -s /
+RUN du -s /opt/conda/*
+RUN du -s /opt/conda/*/*
 COPY binder/overrides.json /tmp
 RUN mkdir -p /opt/conda/share/jupyter/lab/settings; \
       cp /tmp/overrides.json /opt/conda/share/jupyter/lab/settings    
