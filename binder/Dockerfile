@@ -42,8 +42,8 @@ COPY binder/environment.yml .
 # docker may reuse an existing repo clone..
 #cd ${GH_REPO} && git pull && cd .. && echo "1" && \
 RUN \
-    micromamba env update --name base -f environment.yml && \
-    micromamba install -y  -c conda-forge \       
+    CONDA_OVERRIDE_CUDA="12.9" micromamba env update --name base -f environment.yml && \
+    CONDA_OVERRIDE_CUDA="12.9" micromamba install -y  -c conda-forge \       
     jupyterlab openssh notebook vim nano emacs  && \      
     micromamba clean --all --yes
 
