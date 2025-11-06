@@ -19,11 +19,14 @@ dependencies:
   - pandas
   - pip
   - scikit-learn
-  - pytorch-gpu
-  - torch-geometric
-  - torchvision
+#  - pytorch-gpu
+#  - torch-geometric
+#  - torchvision
   - pip:
       - h5py
+      - torch 
+      - torchvision
+      - torch-geometric
 
 
 variables:
