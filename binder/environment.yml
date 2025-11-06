@@ -5,6 +5,7 @@ channels:
 dependencies:
   - python=3.12
   - bash_kernel
+  - grpcio
   - jax 
   - jaxlib=*=*cuda*
 #  - tensorflow=*=*cuda*
