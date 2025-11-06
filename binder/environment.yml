@@ -28,11 +28,11 @@ dependencies:
       - tensorboard
       - tensorflow[and-cuda] 
       #- tensorrt
-      #- torch
-      #- torch-geometric
-      #- torchvision
+      - torch
+      - torch-geometric
+      - torchvision
       #- tqdm
-#      - xgboost
+      - xgboost
 
 
 
