@@ -5,8 +5,10 @@ channels:
 dependencies:
   - python=3.12
   - bash_kernel
-  - jax
-  - tensorflow[and-cuda]
+  - jax 
+  - jaxlib=*=*cuda*
+#  - tensorflow=*=*cuda*
+#  - tensorflow[and-cuda]
   - cudnn
   - numpy<2
   - pandas
@@ -19,14 +21,17 @@ dependencies:
   - pandas
   - pip
   - scikit-learn
-#  - pytorch-gpu
-#  - torch-geometric
-#  - torchvision
   - pip:
       - h5py
-#      - torch 
-#      - torchvision
-#      - torch-geometric
+      - tensorboard
+      - tensorflow[and-cuda] 
+      #- tensorrt
+      - torch
+      - torch-geometric
+      - torchvision
+      - tqdm
+      - xgboost
+
 
 
 variables:
