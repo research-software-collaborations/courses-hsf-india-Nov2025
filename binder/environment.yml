@@ -19,7 +19,8 @@ dependencies:
   - pandas
   - pip
   - scikit-learn
-  - torch
+  - pytorch
+  - pytorch-cuda
   - torch-geometric
   - torchvision
   - pip:
