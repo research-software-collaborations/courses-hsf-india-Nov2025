@@ -37,11 +37,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 USER $MAMBA_USER
 
-RUN git clone -b ${GH_BRANCH} ${GH_ORG}/${GH_REPO}
-
+#RUN git clone -b ${GH_BRANCH} ${GH_ORG}/${GH_REPO}
+COPY binder/environment.yml .
 # docker may reuse an existing repo clone..
-RUN cd ${GH_REPO} && git pull && cd .. && echo "1" && \
-    micromamba env update --name base -f ${GH_ENV_DIR}/environment.yml && \
+#cd ${GH_REPO} && git pull && cd .. && echo "1" && \
+RUN \
+    micromamba env update --name base -f environment.yml && \
     micromamba install -y  -c conda-forge \       
     jupyterlab openssh notebook vim nano emacs  && \      
     micromamba clean --all --yes
