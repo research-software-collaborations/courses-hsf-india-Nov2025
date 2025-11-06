@@ -19,6 +19,9 @@ dependencies:
   - pandas
   - pip
   - scikit-learn
+  - torch
+  - torch-geometric
+  - torchvision
   - pip:
       - h5py
 
