@@ -24,9 +24,9 @@ dependencies:
 #  - torchvision
   - pip:
       - h5py
-      - torch 
-      - torchvision
-      - torch-geometric
+#      - torch 
+#      - torchvision
+#      - torch-geometric
 
 
 variables:
