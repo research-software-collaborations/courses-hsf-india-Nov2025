@@ -11,7 +11,7 @@ dependencies:
 #  - jaxlib=*=*cuda*
 #  - tensorflow=*=*cuda*
 #  - tensorflow[and-cuda]
-  - cudnn
+#  - cudnn -- duplicate?
   - numpy<2
   - pandas
   - scipy
@@ -33,6 +33,7 @@ dependencies:
       - torchvision
       #- tqdm
       - jax[cuda12]
+      - nvidia-cudnn-cu12
       #- xgboost
 
 
