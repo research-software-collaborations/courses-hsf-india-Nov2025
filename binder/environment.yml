@@ -5,30 +5,17 @@ channels:
 dependencies:
   - python=3.12
   - bash_kernel
-  - grpcio
   - numpy<2
   - pandas
   - scipy
-  - hdf5
-  - lz4
   - matplotlib
-  - numba
   - openssh
   - pandas
   - pip
   - scikit-learn
   - pip:
       - h5py
-      - tensorboard
-      - tensorflow[and-cuda] 
-      #- tensorrt
-      - torch
-      - torch-geometric
-      - torchvision
-      #- tqdm
-      - jax[cuda12]
-      - nvidia-cudnn-cu12
-      - xgboost
+      
 
 
 
