@@ -12,7 +12,7 @@ dependencies:
   - hdf5
   - lz4
   - matplotlib
-  - numba
+  #- numba
   - openssh
   - pandas
   - pip
