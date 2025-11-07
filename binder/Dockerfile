@@ -44,7 +44,7 @@ COPY binder/environment.yml .
 RUN \
     CONDA_OVERRIDE_CUDA="12.9" micromamba env update --name base -f environment.yml && \
     CONDA_OVERRIDE_CUDA="12.9" micromamba install -y  -c conda-forge \       
-    jupyterlab openssh notebook vim nano emacs  && \      
+    jupyterlab openssh notebook vim nano emacs curl wget  && \      
     micromamba clean --all --yes
 
 RUN micromamba list
