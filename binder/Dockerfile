@@ -32,15 +32,13 @@ ENV MAMBA_USER=$NEW_MAMBA_USER
 
 USER root
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    git \
-    && rm -rf /var/lib/apt/lists/*
+    git && rm -rf /var/lib/apt/lists/*
 
 USER $MAMBA_USER
 
 #RUN git clone -b ${GH_BRANCH} ${GH_ORG}/${GH_REPO}
 COPY binder/environment.yml .
-# docker may reuse an existing repo clone..
-#cd ${GH_REPO} && git pull && cd .. && echo "1" && \
+
 RUN \
     CONDA_OVERRIDE_CUDA="12.9" micromamba env update --name base -f environment.yml && \
     CONDA_OVERRIDE_CUDA="12.9" micromamba install -y  -c conda-forge \       
@@ -50,9 +48,11 @@ RUN \
 RUN micromamba list
 
 USER root
-#RUN du -s /
-#RUN du -s /opt/conda/*
-#RUN du -s /opt/conda/*/*
+
+#clean up after conda
+RUN rm -rf /opt/conda/pkgs
+
+# remove the news
 COPY binder/overrides.json /tmp
 RUN mkdir -p /opt/conda/share/jupyter/lab/settings; \
       cp /tmp/overrides.json /opt/conda/share/jupyter/lab/settings    
