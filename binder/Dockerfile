@@ -57,3 +57,5 @@ RUN mkdir -p /opt/conda/share/jupyter/lab/settings; \
 USER jovyan
 WORKDIR /home/jovyan
 
+RUN echo 'export PS1='\[\e[0;32m\]\$\[\e[0m\] ' >> .bashrc
+
