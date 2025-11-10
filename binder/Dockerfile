@@ -5,10 +5,10 @@ ARG NEW_MAMBA_USER=jovyan
 ARG NEW_MAMBA_USER_ID=1000
 ARG NEW_MAMBA_USER_GID=57440
 
-ARG GH_ORG="https://github.com/research-software-collaborations"
-ARG GH_REPO="courses-hsf-india-Nov2025"
-ARG GH_BRANCH="python"
-ARG GH_ENV_DIR="${GH_REPO}/binder"
+#ARG GH_ORG="https://github.com/research-software-collaborations"
+#ARG GH_REPO="courses-hsf-india-Nov2025"
+#ARG GH_BRANCH="python"
+#ARG GH_ENV_DIR="${GH_REPO}/binder"
 
 USER root
 
@@ -36,11 +36,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 USER $MAMBA_USER
 
-RUN git clone -b ${GH_BRANCH} ${GH_ORG}/${GH_REPO}
+#RUN git clone -b ${GH_BRANCH} ${GH_ORG}/${GH_REPO}
 
-RUN micromamba env update --name base -f ${GH_ENV_DIR}/environment.yml && \
+COPY binder/environment.yml .
+RUN micromamba env update --name base -f environment.yml && \
     micromamba install -y  -c conda-forge \       
-       jupyterlab openssh notebook vim nano emacs  && \      
+       jupyterlab openssh notebook vim nano emacs jupyterlab-slideshow  && \      
     micromamba clean --all --yes
 
 WORKDIR /home/jovyan
