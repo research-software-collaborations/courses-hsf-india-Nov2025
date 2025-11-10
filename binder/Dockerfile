@@ -44,6 +44,10 @@ RUN micromamba env update --name base -f environment.yml && \
        jupyterlab openssh notebook vim nano emacs jupyterlab-slideshow  && \      
     micromamba clean --all --yes
 
+# remove the news
+COPY binder/overrides.json /tmp
+RUN mkdir -p /opt/conda/share/jupyter/lab/settings; \
+      cp /tmp/overrides.json /opt/conda/share/jupyter/lab/settings    
+
 WORKDIR /home/jovyan
 
-RUN echo 'export PS1="\e[0;32m\W$ \e[m"' >> .bashrc
