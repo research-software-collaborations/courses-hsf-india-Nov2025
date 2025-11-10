@@ -44,10 +44,16 @@ RUN micromamba env update --name base -f environment.yml && \
        jupyterlab openssh notebook vim nano emacs jupyterlab-slideshow  && \      
     micromamba clean --all --yes
 
+USER root
+
+#clean up after conda
+RUN rm -rf /opt/conda/pkgs
+
 # remove the news
 COPY binder/overrides.json /tmp
 RUN mkdir -p /opt/conda/share/jupyter/lab/settings; \
       cp /tmp/overrides.json /opt/conda/share/jupyter/lab/settings    
 
+USER jovyan
 WORKDIR /home/jovyan
 
