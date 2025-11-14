@@ -44,8 +44,6 @@ RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
 WORKDIR ${HOME}
 
-RUN echo "export PS1='\[\e[0;32m\]\w\$\[\e[0m\] '" >> .bashrc
-
 # add our environment
 COPY binder/environment.yml .
 RUN . /opt/conda/etc/profile.d/conda.sh; mamba env create -f environment.yml; \
@@ -54,3 +52,5 @@ RUN . /opt/conda/etc/profile.d/conda.sh; mamba env create -f environment.yml; \
 
 RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
     echo "conda activate base" >> ~/.bashrc
+
+RUN echo "export PS1='\[\e[0;32m\]\w\$\[\e[0m\] '" >> .bashrc
