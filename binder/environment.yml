@@ -14,8 +14,6 @@ dependencies:
     - matplotlib
     # force an old version..
     - contourpy==1.0.7
-#    - awkward
-#    - uproot
     - numpy<2.0
-#    - vector
-#    - bash_kernel
+    - jupyter-remote-desktop-proxy
+    - bash_kernel
