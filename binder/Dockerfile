@@ -10,7 +10,7 @@ ADD binder/centos.repo /etc/yum.repos.d/centos.repo
 RUN yum-config-manager --add-repo /etc/yum.repos.d/centos.repo
 RUN yum clean all ; yum makecache
 
-RUN yum install -y python3 glibc-devel.i686 vim nano emacs xxhash-devel libzstd tigervnc-standalone-server  > /etc/yum.out
+RUN yum install -y python3 glibc-devel.i686 vim nano emacs xxhash-devel libzstd tigervnc-server  > /etc/yum.out
 RUN yum clean -y all
 
 COPY binder/entrypoint.sh /usr/bin/entrypoint.sh
