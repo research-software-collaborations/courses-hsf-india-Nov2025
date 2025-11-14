@@ -42,8 +42,9 @@ USER root
 RUN chown -R ${NB_UID} ${HOME}
 
 USER ${NB_USER}
-
 WORKDIR ${HOME}
+
+RUN echo "export PS1='\[\e[0;32m\]\w\$\[\e[0m\] '" >> .bashrc
 
 # add our environment
 COPY binder/environment.yml .
