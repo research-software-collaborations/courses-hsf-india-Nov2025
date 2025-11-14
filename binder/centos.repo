@@ -29,7 +29,7 @@ metadata_expire=never
 
 [centos-sclo-SCLGROUP]
 name=CentOS-$releasever - SCLo SCLGROUP
-baseurl=https://vault.centos.org/centos/$releasever/sclo/$basearch/SCLGROUP/
+baseurl=https://vault.centos.org/centos/$releasever/sclo/$basearch/sclo
 # mirrorlist=https://vault.centos.org?arch=$basearch&release=$releasever&repo=sclo-SCLGROUP
 gpgcheck=1
 enabled=1
