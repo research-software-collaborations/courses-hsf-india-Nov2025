@@ -52,7 +52,7 @@ COPY binder/environment.yml .
 RUN . /opt/conda/etc/profile.d/conda.sh; mamba env create -f environment.yml; \
     conda activate hsf-india; \
     conda install gxx -y; \
-    conda install jupyter-remote-desktop-proxy -y \
+    conda install jupyter-remote-desktop-proxy -y; \
     python -m ipykernel install --user --name myenv --display-name "Python (hsf-india)"
 
 RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
