@@ -12,6 +12,10 @@ RUN yum clean all ; yum makecache
 
 RUN yum install -y python3 glibc-devel.i686 vim nano emacs xxhash-devel libzstd tigervnc-server  > /etc/yum.out
 RUN yum clean -y all
+RUN yum groupinstall "Server with GUI" -y; yum groupinstall "Xfce" -y; yum clean -y all
+RUN systemctl set-default graphical.target
+RUN echo "xfce4-session" > ~/.Xclients
+RUN chmod a+x ~/.Xclients
 
 # not finding devtoolset
 #RUN yum install centos-release-scl -y; yum clean all; yum install devtoolset-9-* -y; scl enable devtoolset-9 bash
