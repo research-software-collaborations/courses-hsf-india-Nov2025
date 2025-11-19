@@ -54,13 +54,16 @@ USER ${NB_USER}
 WORKDIR ${HOME}
 
 # add our environment
-COPY binder/environment.yml .
-RUN . /opt/conda/etc/profile.d/conda.sh; mamba env create -f environment.yml; \
-    conda activate hsf-india; \
-    conda install gxx -y; \
-    conda install jupyter-server-proxy qgis websockify -y; \
+#COPY binder/environment.yml .
+RUN . /opt/conda/etc/profile.d/conda.sh; mamba env create hsf-india jupyter-server-proxy qgis websockify pip; \
     pip install jupyter-desktop-server; \
     python -m ipykernel install --user --name myenv --display-name "Python (hsf-india)"
+#RUN . /opt/conda/etc/profile.d/conda.sh; mamba env create -f environment.yml; \
+#    conda activate hsf-india; \
+#    conda install gxx -y; \
+#    conda install jupyter-server-proxy qgis websockify -y; \
+#    pip install jupyter-desktop-server; \
+#    python -m ipykernel install --user --name myenv --display-name "Python (hsf-india)"
 #conda install jupyter-remote-desktop-proxy -y;
 #    conda install root; \
 RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
