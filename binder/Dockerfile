@@ -55,7 +55,7 @@ WORKDIR ${HOME}
 
 # add our environment
 #COPY binder/environment.yml .
-RUN . /opt/conda/etc/profile.d/conda.sh; mamba env create hsf-india jupyter-server-proxy qgis websockify pip; \
+RUN . /opt/conda/etc/profile.d/conda.sh; mamba env create hsf-india jupyter-server-proxy qgis websockify pip notebook ipykernel jupyterlab; \
     pip install jupyter-desktop-server; \
     python -m ipykernel install --user --name myenv --display-name "Python (hsf-india)"
 #RUN . /opt/conda/etc/profile.d/conda.sh; mamba env create -f environment.yml; \
