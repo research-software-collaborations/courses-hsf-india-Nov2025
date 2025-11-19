@@ -21,6 +21,7 @@ RUN chmod a+x ~/.Xclients
 #RUN yum install centos-release-scl -y; yum clean all; yum install devtoolset-9-* -y; scl enable devtoolset-9 bash
 
 COPY binder/entrypoint.sh /usr/bin/entrypoint.sh
+COPY binder/_activate_conda.sh /opt/_activate_conda.sh
 
 #RUN which python3
 #RUN python3 -m ensurepip
