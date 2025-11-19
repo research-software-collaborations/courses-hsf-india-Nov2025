@@ -84,6 +84,6 @@ RUN mkdir Desktop && \
     echo "Type=Application" >> Desktop/test.app && \
     echo "Name=qgis" >> Desktop/test.app && \
     echo "Exec=qgis" >> Desktop/test.app && \
-    echo "Icon=/srv/conda/envs/notebook/share/qgis/images/icons/qgis-icon-512x512.png" >> Desktop/test.app
+    echo "Icon=/opt/conda/envs/hsf-india/share/qgis/images/icons/qgis-icon-512x512.png" >> Desktop/test.app
 
 RUN echo "export PS1='\[\e[0;32m\]\w\$\[\e[0m\] '" >> .bashrc
