@@ -12,7 +12,7 @@ RUN yum clean all ; yum makecache
 
 RUN yum install -y python3 glibc-devel.i686 vim nano emacs \
                    xxhash-devel libzstd tigervnc-server \
-                   ftgl libGLEW gl2ps > /etc/yum.out
+                   ftgl libGLEW gl2ps  > /etc/yum.out
 RUN yum clean -y all
 RUN yum groupinstall "Server with GUI" -y; yum groupinstall "Xfce" -y; yum clean -y all
 RUN systemctl set-default graphical.target
