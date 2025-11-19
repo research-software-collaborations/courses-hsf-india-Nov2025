@@ -55,7 +55,7 @@ WORKDIR ${HOME}
 
 # add our environment
 #COPY binder/environment.yml .
-RUN . /opt/conda/etc/profile.d/conda.sh; mamba env create hsf-india "python=3.11" jupyter-server-proxy \
+RUN . /opt/conda/etc/profile.d/conda.sh; mamba env create -n hsf-india "python=3.11" jupyter-server-proxy \
     qgis websockify pip notebook ipykernel jupyterlab; \
     conda activate hsf-india; \
     which pip; \
