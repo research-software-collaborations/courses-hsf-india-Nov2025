@@ -23,7 +23,7 @@ RUN chmod a+x ~/.Xclients
 
 COPY --chmod=755 binder/entrypoint.sh /usr/bin/entrypoint.sh
 # seems to break things... 
-ENTRYPOINT ["usr/bin/entrypoint.sh"]
+ENTRYPOINT ["/usr/bin/entrypoint.sh"]
 COPY binder/_activate_conda.sh /opt/_activate_conda.sh
 
 #RUN which python3
