@@ -29,13 +29,6 @@ RUN pip3 install --no-cache --upgrade pip
 RUN pip3 install --no-cache notebook jupyterlab 
 #RUN pip3 install --no-cache jupyter-remote-desktop-proxy
 
-RUN wget --quiet https://github.com/conda-forge/miniforge/releases/download/23.3.1-1/Mambaforge-23.3.1-1-Linux-x86_64.sh \
-    -O ~/miniconda.sh && \
-    /bin/bash ~/miniconda.sh -b -p /opt/conda && \
-    rm ~/miniconda.sh && \
-    ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh
-
-RUN . /opt/conda/etc/profile.d/conda.sh; 
     
 ARG NB_USER=jovyan
 ARG NB_UID=1000
@@ -49,6 +42,17 @@ RUN adduser \
 COPY . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
+
+RUN wget --quiet https://github.com/conda-forge/miniforge/releases/download/23.3.1-1/Mambaforge-23.3.1-1-Linux-x86_64.sh \
+    -O ~/miniconda.sh && \
+    /bin/bash ~/miniconda.sh -b -p /opt/conda && \
+    rm ~/miniconda.sh && \
+    ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh && \
+    chown -R ${NB_USER}: /home/${NB_USER} && \
+    # Allow user to call conda:
+    chown -R ${NB_USER}: /opt/conda/
+
+RUN . /opt/conda/etc/profile.d/conda.sh; 
 
 USER ${NB_USER}
 WORKDIR ${HOME}
