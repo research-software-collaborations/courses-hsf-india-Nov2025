@@ -27,7 +27,7 @@ COPY binder/_activate_conda.sh /opt/_activate_conda.sh
 RUN python3 -m ensurepip
 RUN pip3 install --no-cache --upgrade pip
 RUN pip3 install --no-cache notebook jupyterlab 
-RUN pip3 install --no-cache jupyter-remote-desktop-proxy
+#RUN pip3 install --no-cache jupyter-remote-desktop-proxy
 
 RUN wget --quiet https://github.com/conda-forge/miniforge/releases/download/23.3.1-1/Mambaforge-23.3.1-1-Linux-x86_64.sh \
     -O ~/miniconda.sh && \
@@ -58,8 +58,11 @@ COPY binder/environment.yml .
 RUN . /opt/conda/etc/profile.d/conda.sh; mamba env create -f environment.yml; \
     conda activate hsf-india; \
     conda install gxx -y; \
-    conda install jupyter-remote-desktop-proxy -y; \
+    conda install jupyter-server-proxy qgis websockify -y; \
+    pip install jupyter-desktop-server; \
+    conda install root; \
     python -m ipykernel install --user --name myenv --display-name "Python (hsf-india)"
+#conda install jupyter-remote-desktop-proxy -y;
 
 RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
     echo "conda activate hsf-india" >> ~/.bashrc
