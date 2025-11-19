@@ -60,10 +60,9 @@ RUN . /opt/conda/etc/profile.d/conda.sh; mamba env create -f environment.yml; \
     conda install gxx -y; \
     conda install jupyter-server-proxy qgis websockify -y; \
     pip install jupyter-desktop-server; \
-    conda install root; \
     python -m ipykernel install --user --name myenv --display-name "Python (hsf-india)"
 #conda install jupyter-remote-desktop-proxy -y;
-
+#    conda install root; \
 RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
     echo "conda activate hsf-india" >> ~/.bashrc
 
