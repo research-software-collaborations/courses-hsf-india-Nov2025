@@ -3,6 +3,7 @@ ARG BASEIMAGE=gitlab-registry.cern.ch/sft/docker/centos7-core:2023-10-26
 FROM ${BASEIMAGE}
 
 USER root
+SHELL [ "/bin/bash", "-c" ]
 
 # disable no longer functioning repos and add archive ones
 RUN sed -i 's/enabled=1/enabled=0/' /etc/yum.repos.d/*.repo
@@ -54,6 +55,7 @@ RUN wget --quiet https://github.com/conda-forge/miniforge/releases/download/23.3
 
 RUN . /opt/conda/etc/profile.d/conda.sh; 
 
+ENV PATH /opt/conda/envs/env/bin:$PATH
 USER ${NB_USER}
 WORKDIR ${HOME}
 
@@ -75,5 +77,13 @@ RUN . /opt/conda/etc/profile.d/conda.sh; \
 #    conda install root; \
 RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
     echo "conda activate hsf-india" >> ~/.bashrc
+
+RUN mkdir Desktop && \
+    echo "[Desktop Entry]" > Desktop/test.app && \
+    echo "Version=1.0" >> Desktop/test.app && \
+    echo "Type=Application" >> Desktop/test.app && \
+    echo "Name=qgis" >> Desktop/test.app && \
+    echo "Exec=qgis" >> Desktop/test.app && \
+    echo "Icon=/srv/conda/envs/notebook/share/qgis/images/icons/qgis-icon-512x512.png" > Desktop/test.app
 
 RUN echo "export PS1='\[\e[0;32m\]\w\$\[\e[0m\] '" >> .bashrc
