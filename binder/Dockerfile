@@ -78,6 +78,8 @@ RUN . /opt/conda/etc/profile.d/conda.sh; \
 RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
     echo "conda activate hsf-india" >> ~/.bashrc
 
+RUN rm -rf /opt/conda/pkgs
+
 RUN mkdir Desktop && \
     echo "[Desktop Entry]" > Desktop/test.app && \
     echo "Version=1.0" >> Desktop/test.app && \
