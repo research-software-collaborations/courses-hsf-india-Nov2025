@@ -23,9 +23,9 @@ RUN chmod a+x ~/.Xclients
 COPY binder/entrypoint.sh /usr/bin/entrypoint.sh
 
 #RUN which python3
-RUN python3 -m ensurepip
-RUN pip3 install --no-cache --upgrade pip
-RUN pip3 install --no-cache notebook jupyterlab 
+#RUN python3 -m ensurepip
+#RUN pip3 install --no-cache --upgrade pip
+#RUN pip3 install --no-cache notebook jupyterlab 
 
 RUN wget --quiet https://github.com/conda-forge/miniforge/releases/download/23.3.1-1/Mambaforge-23.3.1-1-Linux-x86_64.sh \
     -O ~/miniconda.sh && \
