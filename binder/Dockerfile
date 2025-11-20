@@ -73,7 +73,7 @@ RUN . /opt/conda/etc/profile.d/conda.sh; \
     python -m ipykernel install --user --name myenv --display-name "Python (hsf-india)"
 
 RUN . /opt/conda/etc/profile.d/conda.sh; \
-    mamba create -n root-env -c conda-forge "python=3.11" "root=6.26" notebook ipykernel jupyterlab; \
+    mamba create -n root-env -c conda-forge python "root=6.26" notebook ipykernel jupyterlab; \
     conda activate root-env; \
     python -m ipykernel install --user --name myenv --display-name "Python (root)"; \
     conda activate hsf-india
