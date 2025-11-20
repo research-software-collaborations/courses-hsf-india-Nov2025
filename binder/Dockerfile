@@ -65,18 +65,19 @@ WORKDIR ${HOME}
 # add our environment
 #COPY binder/environment.yml .
 RUN . /opt/conda/etc/profile.d/conda.sh; \
-    mamba create -n hsf-india -c conda-forge "python=3.11" jupyter-server-proxy qgis websockify pip \
+    mamba create -n hsf-india -c conda-forge root python jupyter-server-proxy qgis websockify pip \
     notebook ipykernel jupyterlab git; \
     conda activate hsf-india; \
     which pip; \
-    pip install jupyter-desktop-server bash_kernel; \
-    python -m ipykernel install --user --name myenv --display-name "Python (hsf-india)"
+    pip install jupyter-desktop-server bash_kernel; 
+#\
+#    python -m ipykernel install --user --name myenv --display-name "Python (hsf-india)"
 
-RUN . /opt/conda/etc/profile.d/conda.sh; \
-    mamba create -n root-env -c conda-forge python "root=6.26" notebook ipykernel jupyterlab; \
-    conda activate root-env; \
-    python -m ipykernel install --user --name myrootenv --display-name "Python (root)"; \
-    conda activate hsf-india
+#RUN . /opt/conda/etc/profile.d/conda.sh; \
+#    mamba create -n root-env -c conda-forge python "root=6.26" notebook ipykernel jupyterlab; \
+#    conda activate root-env; \
+#    python -m ipykernel install --user --name myrootenv --display-name "Python (root)"; \
+#    conda activate hsf-india
 
 # not needed
 #RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
