@@ -69,8 +69,8 @@ RUN . /opt/conda/etc/profile.d/conda.sh; \
     notebook ipykernel jupyterlab git; \
     conda activate hsf-india; \
     which pip; \
-    python -m bash_kernel.install; \
-    pip install jupyter-desktop-server bash_kernel; 
+    pip install jupyter-desktop-server bash_kernel; \
+    python -m bash_kernel.install; 
 #\
 #    python -m ipykernel install --user --name myenv --display-name "Python (hsf-india)"
 
