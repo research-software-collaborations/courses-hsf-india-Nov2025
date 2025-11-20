@@ -54,6 +54,9 @@ COPY binder/overrides.json /tmp
 RUN mkdir -p /opt/conda/share/jupyter/lab/settings; \
       cp /tmp/overrides.json /opt/conda/share/jupyter/lab/settings    
 
+RUN ln=`grep -n "exec " /usr/local/bin/_entrypoint.sh | tail -1 | cut -f1 -d:`; \
+    sed -i "${ln}igit clone --recurse-submodules https://github.com/research-software-collaborations/courses-hsf-india-Nov2025" /usr/local/bin/_entrypoint.sh
+
 USER jovyan
 WORKDIR /home/jovyan
 
