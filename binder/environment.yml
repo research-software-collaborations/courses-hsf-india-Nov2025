@@ -43,9 +43,10 @@ dependencies:
   - dask-awkward
   - graphviz
   - python-graphviz
+  - flax
   - pip:
       - h5py
-      - flax
+  
 
 variables:
   LD_LIBRARY_PATH: "'$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/'"
