@@ -71,16 +71,16 @@ RUN . /opt/conda/etc/profile.d/conda.sh; \
     which pip; \
     pip install jupyter-desktop-server; \
     python -m ipykernel install --user --name myenv --display-name "Python (hsf-india)"
-#RUN . /opt/conda/etc/profile.d/conda.sh; mamba env create -f environment.yml; \
-#    conda activate hsf-india; \
-#    conda install gxx -y; \
-#    conda install jupyter-server-proxy qgis websockify -y; \
-#    pip install jupyter-desktop-server; \
-#    python -m ipykernel install --user --name myenv --display-name "Python (hsf-india)"
-#conda install jupyter-remote-desktop-proxy -y;
-#    conda install root; \
-RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
-    echo "conda activate hsf-india" >> ~/.bashrc
+
+RUN . /opt/conda/etc/profile.d/conda.sh; \
+    mamba create -n root-env -c conda-forge "python=3.11" "root=6.26" notebook ipykernel jupyterlab; \
+    conda activate root-env; \
+    python -m ipykernel install --user --name myenv --display-name "Python (root)"; \
+    conda activate hsf-india
+
+# not needed
+#RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
+#    echo "conda activate hsf-india" >> ~/.bashrc
 
 RUN rm -rf /opt/conda/pkgs
 
