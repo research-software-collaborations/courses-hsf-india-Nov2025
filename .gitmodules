@@ -1,0 +1,4 @@
+[submodule "ScientificPython"]
+        path = ScientificPython
+        url = ../../davidlange6/ScientificPython.git
+
