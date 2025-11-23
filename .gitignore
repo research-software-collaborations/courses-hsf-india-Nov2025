@@ -4,3 +4,4 @@ __pycache__/
 .DS_Store
 
 quadratic_formula_c.so
+quadratic_formula_c.c

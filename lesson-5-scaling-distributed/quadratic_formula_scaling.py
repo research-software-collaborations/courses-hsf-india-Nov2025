@@ -1,4 +1,3 @@
-
 # writing to a separate file, because multiprocessing is buggy in notebooks (see: https://bugs.python.org/issue25053)
 import numpy as np
 import time
