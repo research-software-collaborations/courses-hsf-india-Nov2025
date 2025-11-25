@@ -1,3 +1,6 @@
 [submodule "ScientificPython"]
 	path = ScientificPython
 	url = ../../davidlange6/ScientificPython
+[submodule "ScientificPython-2"]
+	path = HSF-India-Guwahati-ScientificPython
+	url = ../../pfackeldey/HSF-India-Guwahati-ScientificPython.git
