@@ -4,3 +4,6 @@
 [submodule "ScientificPython-2"]
 	path = HSF-India-Guwahati-ScientificPython
 	url = ../../pfackeldey/HSF-India-Guwahati-ScientificPython.git
+[submodule "Deep-Learning-IIT-Guwahati"]
+	path = Deep-Learning-IIT-Guwahati
+	url = ../../alpha-davidson/Deep-Learning-IIT-Guwahati
